@@ -12,7 +12,7 @@ function handleAdd (request, response) {
 		var item = qs.parse(body).str;
 		if (item != null) {
 			list.shared.insert(item);
-			response.writeHead(301, {'Location': '/'});
+			response.writeHead(302, {'Location': '/'});
 			response.end();
 		} else {
 			response.writeHead(200, {'Content-Type': 'text/html'});
@@ -26,7 +26,7 @@ function handleDelete (request, response) {
 	console.log('Request to /del');
 	var delID = parseInt(request.url.substr(5));
 	list.shared.remove(delID);
-	response.writeHead(301, {'Location': '/'});
+	response.writeHead(302, {'Location': '/'});
 	response.end();
 }
 
